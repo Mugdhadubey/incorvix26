@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favinc.png">
+  <!-- SEO Meta Tags - These will be automatically updated by seo.js -->
+  <title>Industries We Serve | SAP Solutions by Industry | Incorvix</title>
+  <meta name="description" content="Incorvix provides specialized SAP solutions for Healthcare, Manufacturing, Oil & Gas, Retail, and Technology industries with deep industry expertise.">
+  <meta name="keywords" content="SAP healthcare, SAP manufacturing, SAP oil and gas, SAP retail, industry-specific SAP solutions">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css?v=20260116154154">
+  
+  <!-- Tailwind CSS CDN -->
+  <script>
+    // Suppress Tailwind CDN warning for HTML website
+    const originalWarn = console.warn;
+    console.warn = function(...args) {
+      if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
+        return; // Suppress Tailwind CDN warning
+      }
+      originalWarn.apply(console, args);
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'vankine-blue': '#04adea',
+            'vankine-blue-600': '#0394c7',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Additional CSS to ensure container max-widths AFTER Tailwind loads -->
+  <style>
+    /* FORCE all containers to have max-width with highest specificity */
+    body .container,
+    body .container.mx-auto,
+    body div.container,
+    html body .container,
+    html body .container.mx-auto,
+    html body div.container {
+      max-width: 1360px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: auto !important;
+    }
+    
+    @media (min-width: 640px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 640px !important;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 768px !important;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+    
+    @media (min-width: 1536px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+  </style>
+  
+  <!-- JavaScript to force container widths -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function forceWidths() {
+        document.querySelectorAll('.container, .container.mx-auto, div.container').forEach(function(el) {
+          if (window.innerWidth >= 1024) {
+            el.style.setProperty('max-width', '1360px', 'important');
+            el.style.setProperty('margin-left', 'auto', 'important');
+            el.style.setProperty('margin-right', 'auto', 'important');
+          }
+        });
+      }
+      forceWidths();
+      setTimeout(forceWidths, 100);
+      setTimeout(forceWidths, 500);
+    });
+  </script>
+  
+  <!-- SEO Script - Loads meta tags from JSON -->
+  <script src="assets/js/seo.js" defer></script>
+  
+  <!-- Fallback for file:// protocol - loads header/footer inline -->
+  <script src="assets/js/open-browser.js"></script>
+</head>
+<body>
+  <!-- Header Placeholder - Loaded dynamically -->
+  <div id="header-placeholder"></div>
+  
+  <!-- Main Content -->
+  <main>
+    <div class="min-h-screen pt-20 bg-gray-50">
+      <div class="container mx-auto px-4 py-16">
+        <div class="text-center mb-16">
+          <span class="text-[#04adea] font-semibold text-sm uppercase tracking-wider">Industries We Serve</span>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6">
+            Industries We Serve
+          </h1>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            We understand that every industry has its own language, challenges, and pace of change. That's why our SAP solutions aren't one-size-fits-all — they're adapted to the unique demands of your sector. Whether you're in healthcare, manufacturing, oil & gas, retail, or technology, we align our expertise with your business realities to deliver measurable outcomes.
+          </p>
+        </div>
+
+        <div class="space-y-16">
+          <!-- Healthcare Industry -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden p-6 md:p-8">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <div class="flex items-center space-x-4 mb-6">
+                  <div class="w-16 h-16 rounded-2xl bg-[#04adea]/10 flex items-center justify-center">
+                    <span class="text-4xl">🏥</span>
+                  </div>
+                  <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Health Care</h2>
+                  </div>
+                </div>
+
+                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Healthcare organizations face the dual challenge of improving patient outcomes while managing costs and meeting strict regulations. Our SAP-driven healthcare solutions are designed to help you:</p>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Enhanced Patient Care</h3>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Enhance patient services with integrated EHR systems and real-time access to clinical data.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Ensure compliance with HIPAA, GDPR, and national health standards through secure data handling.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Streamline supply chain management for medical equipment, pharmaceuticals, and consumables.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Enable predictive analytics for patient demand, staffing, and preventive care.</span>
+                  </li>
+                </ul>
+
+                <p class="text-gray-600 leading-relaxed font-medium">We help hospitals, clinics, and research institutions operate efficiently without compromising the quality of care.</p>
+              </div>
+              <div>
+                <div class="rounded-2xl overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop" alt="Health Care" class="w-full h-80 md:h-96 object-cover" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Manufacturing Industry -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden p-6 md:p-8">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <div class="rounded-2xl overflow-hidden">
+                  <img src="assets/images/factory-workshop-interior-machines-glass-production-background.jpg" alt="Manufacturing" class="w-full h-80 md:h-96 object-cover" loading="lazy">
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center space-x-4 mb-6">
+                  <div class="w-16 h-16 rounded-2xl bg-[#04adea]/10 flex items-center justify-center">
+                    <span class="text-4xl">🏭</span>
+                  </div>
+                  <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Manufacturing</h2>
+                  </div>
+                </div>
+
+                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Manufacturers operate in an environment where speed, quality, and cost-effectiveness are critical. Our SAP solutions enable:</p>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Operational Excellence</h3>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Smart manufacturing through IoT integration and real-time production monitoring.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Predictive maintenance to reduce downtime and extend equipment life.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Optimized production planning with accurate forecasting and demand analysis.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Global supply chain integration for smoother operations across regions.</span>
+                  </li>
+                </ul>
+
+                <p class="text-gray-600 leading-relaxed font-medium">From discrete to process manufacturing, we help you embrace Industry 4.0 and maintain a competitive edge.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Oil & Gas Industry -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden p-6 md:p-8">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <div class="flex items-center space-x-4 mb-6">
+                  <div class="w-16 h-16 rounded-2xl bg-[#04adea]/10 flex items-center justify-center">
+                    <span class="text-4xl">⛽</span>
+                  </div>
+                  <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Oil & Gas</h2>
+                  </div>
+                </div>
+
+                <p class="text-gray-600 leading-relaxed mb-6 text-lg">The oil & gas sector is high-risk and capital-intensive, where inefficiency directly impacts profitability. Our SAP expertise ensures you can:</p>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Safe, Efficient Energy Ops</h3>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Manage assets effectively across exploration, production, refining, and distribution.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Enhance operational safety with automated compliance and incident tracking systems.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Streamline logistics for fuel transportation, storage, and distribution.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Control costs through real-time expense tracking and project cost analysis.</span>
+                  </li>
+                </ul>
+
+                <p class="text-gray-600 leading-relaxed font-medium">We bring digital agility to energy companies so they can adapt to market volatility and environmental responsibilities.</p>
+              </div>
+              <div>
+                <div class="rounded-2xl overflow-hidden">
+                  <img src="assets/images/oil.webp" alt="Oil & Gas" class="w-full h-80 md:h-96 object-cover" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Retail Industry -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden p-6 md:p-8">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <div class="rounded-2xl overflow-hidden">
+                  <img src="assets/images/tech.webp" alt="Retail" class="w-full h-80 md:h-96 object-cover" loading="lazy">
+                </div>
+              </div>
+              <div>
+                <div class="flex items-center space-x-4 mb-6">
+                  <div class="w-16 h-16 rounded-2xl bg-[#04adea]/10 flex items-center justify-center">
+                    <span class="text-4xl">🛒</span>
+                  </div>
+                  <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Retail</h2>
+                  </div>
+                </div>
+
+                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Retailers today need to deliver unified customer experiences across channels. Our SAP-powered retail solutions help you:</p>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Seamless Retail Experiences</h3>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Implement omnichannel strategies integrating e-commerce, in-store, and mobile shopping.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Optimize inventory with just-in-time replenishment and demand forecasting.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Personalize customer interactions using analytics-driven recommendations.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Boost supply chain visibility from suppliers to store shelves.</span>
+                  </li>
+                </ul>
+
+                <p class="text-gray-600 leading-relaxed font-medium">We work with everything from specialty stores to large retail chains to build customer loyalty and operational excellence.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technology Industry -->
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden p-6 md:p-8">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <div class="flex items-center space-x-4 mb-6">
+                  <div class="w-16 h-16 rounded-2xl bg-[#04adea]/10 flex items-center justify-center">
+                    <span class="text-4xl">💻</span>
+                  </div>
+                  <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Technology</h2>
+                  </div>
+                </div>
+
+                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Technology businesses move fast, but growth often brings complexity. Our SAP expertise supports you by:</p>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Accelerated Innovation</h3>
+                <ul class="space-y-3 mb-6">
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Integrating project and portfolio management to align R&D with strategic goals.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Scaling infrastructure to handle rapid expansion and user growth.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Embedding advanced analytics for faster decision-making.</span>
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <div class="w-2 h-2 bg-[#04adea] rounded-full mt-2 flex-shrink-0"></div>
+                    <span class="text-gray-700">Streamlining HR and finance processes to support global operations.</span>
+                  </li>
+                </ul>
+
+                <p class="text-gray-600 leading-relaxed font-medium">We partner with software companies, IT service providers, and tech innovators to help them focus on creating the future — not managing bottlenecks.</p>
+              </div>
+              <div>
+                <div class="rounded-2xl overflow-hidden">
+                  <img src="assets/images/tech.webp" alt="Technology" class="w-full h-80 md:h-96 object-cover" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-16">
+          <div class="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Transform Your Industry?</h2>
+            <p class="text-gray-600 mb-6">
+              Discover how our industry-specific SAP solutions can drive innovation and efficiency in your sector.
+            </p>
+            <button onclick="openConsultationDialog()" class="bg-[#04adea] hover:bg-[#0394c7] text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105">
+              Schedule a Consultation
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Placeholder - Loaded dynamically -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Main JavaScript -->
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/main.js?v=20260116154154"></script>
+</body>
+</html>

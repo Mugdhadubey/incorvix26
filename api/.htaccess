@@ -1,0 +1,10 @@
+# Allow file uploads
+php_value upload_max_filesize 10M
+php_value post_max_size 12M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Enable error reporting for debugging (remove in production)
+php_flag display_errors Off
+php_flag log_errors On
+

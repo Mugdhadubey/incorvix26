@@ -1,0 +1,10 @@
+# Protect uploads directory from direct access
+# Allow PHP scripts to access files but block direct browser access
+
+# Deny all access by default
+Order Deny,Allow
+Deny from all
+
+# Allow server scripts to access (needed for email attachment)
+# This prevents direct URL access while allowing PHP read access
+

@@ -1,0 +1,72 @@
+# Apache URL Rewriting - Remove .html extension from URLs
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Remove .html extension from URLs
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+  # Redirect .html to clean URL
+  RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+  RewriteRule ^ /%1 [NC,L,R=301]
+
+  # Handle index.html redirect
+  RewriteCond %{THE_REQUEST} /index\.html [NC]
+  RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Enable Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  # Reduced cache for CSS/JS during development - change to "access plus 1 month" for production
+  ExpiresByType text/css "access plus 0 seconds"
+  ExpiresByType application/javascript "access plus 0 seconds"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Cache Control Headers - Force no-cache for HTML, CSS, JS during development
+<IfModule mod_headers.c>
+  # Disable ETags completely - prevents 304 responses
+  Header unset ETag
+  FileETag None
+  
+  # Disable caching for HTML files
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+    Header unset ETag
+    Header unset Last-Modified
+  </FilesMatch>
+  
+  # Disable caching for CSS and JS files - FORCE reload every time
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+    Header unset ETag
+    Header unset Last-Modified
+  </FilesMatch>
+</IfModule>
+
+# Disable ETags at server level
+FileETag None

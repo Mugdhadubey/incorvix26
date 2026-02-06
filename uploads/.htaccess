@@ -1,0 +1,13 @@
+# Prevent directory listing
+Options -Indexes
+
+# Deny direct access to all files in this directory
+# This is a security measure to prevent direct file access
+# Files are temporarily stored here and deleted after email is sent
+
+# Allow only PHP scripts to access files
+<FilesMatch ".*">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+

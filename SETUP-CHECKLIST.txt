@@ -1,0 +1,71 @@
+═══════════════════════════════════════════════════════════
+  INCORVIX WEBSITE - SERVER UPLOAD CHECKLIST
+═══════════════════════════════════════════════════════════
+
+📤 STEP 1: UPLOAD FILES
+───────────────────────────────────────────────────────────
+  ☐ Upload ALL files to server root (public_html/www)
+  ☐ Maintain exact folder structure
+  ☐ Verify .htaccess file is uploaded
+
+📁 STEP 2: CREATE REQUIRED FOLDERS
+───────────────────────────────────────────────────────────
+  ☐ Create: api/uploads/ folder
+  ☐ Set permissions: 755 (writable)
+
+🔧 STEP 3: SET FILE PERMISSIONS
+───────────────────────────────────────────────────────────
+  ☐ All folders: 755
+  ☐ All PHP files: 644
+  ☐ All HTML files: 644
+  ☐ api/uploads/: 755 (writable)
+
+📧 STEP 4: INSTALL PHPMailer
+───────────────────────────────────────────────────────────
+  Option A - After upload, visit:
+    https://yourdomain.com/api/download-phpmailer-simple.php
+  
+  Option B - Manual:
+    ☐ Download from GitHub
+    ☐ Extract PHPMailer files
+    ☐ Upload to: api/vendor/PHPMailer/
+    ☐ Files needed:
+      - PHPMailer.php
+      - SMTP.php
+      - Exception.php
+
+✅ STEP 5: VERIFY INSTALLATION
+───────────────────────────────────────────────────────────
+  ☐ Website loads: https://yourdomain.com
+  ☐ Clean URLs work (no .html extension)
+  ☐ Contact form works
+  ☐ Get Started form works
+  ☐ Career form with CV upload works
+  ☐ Emails are received
+  ☐ CV attachments are included in emails
+
+🧪 STEP 6: TEST EVERYTHING
+───────────────────────────────────────────────────────────
+  ☐ Test Contact Form → Email received ✅
+  ☐ Test Consultation Form → Email + Auto-reply received ✅
+  ☐ Test Career Form → Email with CV attachment received ✅
+  ☐ Test on mobile device
+  ☐ Test all pages load correctly
+  ☐ Test clean URLs (about, services, etc. without .html)
+
+⚠️ STEP 7: FINAL CHECKS
+───────────────────────────────────────────────────────────
+  ☐ Check server error logs (no critical errors)
+  ☐ Verify email functionality
+  ☐ Test CV file upload (PDF/DOC only)
+  ☐ Confirm CV attachment in email
+  ☐ Website fully responsive
+  ☐ All links working
+  ☐ SEO meta tags loading
+
+═══════════════════════════════════════════════════════════
+  READY FOR PRODUCTION! 🚀
+═══════════════════════════════════════════════════════════
+
+For detailed instructions, see: UPLOAD-INSTRUCTIONS.md
+

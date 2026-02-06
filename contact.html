@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favinc.png">
+  <!-- SEO Meta Tags - These will be automatically updated by seo.js -->
+  <title>Contact Us | Get in Touch | Incorvix</title>
+  <meta name="description" content="Contact Incorvix for SAP solutions and digital transformation services. Our experts are available to help you navigate your digital transformation journey.">
+  <meta name="keywords" content="contact Incorvix, SAP support contact, business consultation, SAP services inquiry">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css?v=20260116154154">
+  
+  <!-- Tailwind CSS CDN -->
+  <script>
+    // Suppress Tailwind CDN warning for HTML website
+    const originalWarn = console.warn;
+    console.warn = function(...args) {
+      if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
+        return; // Suppress Tailwind CDN warning
+      }
+      originalWarn.apply(console, args);
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'vankine-blue': '#04adea',
+            'vankine-blue-600': '#0394c7',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Additional CSS to ensure container max-widths AFTER Tailwind loads -->
+  <style>
+    /* FORCE all containers to have max-width with highest specificity */
+    body .container,
+    body .container.mx-auto,
+    body div.container,
+    html body .container,
+    html body .container.mx-auto,
+    html body div.container {
+      max-width: 1360px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: auto !important;
+    }
+    
+    @media (min-width: 640px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 640px !important;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 768px !important;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+    
+    @media (min-width: 1536px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+  </style>
+  
+  <!-- JavaScript to force container widths -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function forceWidths() {
+        document.querySelectorAll('.container, .container.mx-auto, div.container').forEach(function(el) {
+          if (window.innerWidth >= 1024) {
+            el.style.setProperty('max-width', '1360px', 'important');
+            el.style.setProperty('margin-left', 'auto', 'important');
+            el.style.setProperty('margin-right', 'auto', 'important');
+          }
+        });
+      }
+      forceWidths();
+      setTimeout(forceWidths, 100);
+      setTimeout(forceWidths, 500);
+    });
+  </script>
+  
+  <!-- SEO Script - Loads meta tags from JSON -->
+  <script src="assets/js/seo.js" defer></script>
+  
+  <!-- Fallback for file:// protocol - loads header/footer inline -->
+  <script src="assets/js/open-browser.js"></script>
+</head>
+<body>
+  <!-- Header Placeholder - Loaded dynamically -->
+  <div id="header-placeholder"></div>
+  
+  <!-- Main Content -->
+  <main>
+    <div class="min-h-screen pt-20 bg-gray-50">
+      <div class="container mx-auto px-4 py-16">
+        <div class="text-center mb-16">
+          <span class="text-[#04adea] font-semibold text-sm uppercase tracking-wider">Contact Us</span>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6">
+            Get In Touch
+          </h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Ready to transform your business with innovative SAP solutions? Our experts are here to help you 
+            navigate your digital transformation journey.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          <!-- Contact Form -->
+          <div class="bg-white rounded-xl shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+            
+            <form id="contact-form" class="space-y-6 max-w-xl" onsubmit="handleContactSubmit(event)">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                <input 
+                  type="text"
+                  name="name"
+                  id="contact-name"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#04adea] focus:border-transparent" 
+                  placeholder="Full Name" 
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                <input 
+                  type="email" 
+                  name="email"
+                  id="contact-email"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#04adea] focus:border-transparent" 
+                  placeholder="you@company.com" 
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                <textarea 
+                  rows="5" 
+                  name="message"
+                  id="contact-message"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#04adea] focus:border-transparent" 
+                  placeholder="How can we help?" 
+                ></textarea>
+              </div>
+              <button 
+                type="submit" 
+                id="submit-btn"
+                class="w-full bg-[#04adea] hover:bg-[#0394c7] disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 px-6 rounded-lg font-medium transition-all duration-300"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="space-y-8">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
+              <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 bg-[#04adea]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
+                    <p class="text-gray-600">contact@incorvix.nl</p>
+                    <p class="text-sm text-gray-500">Send us your queries anytime</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 bg-[#04adea]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Office</h3>
+                    <p class="text-gray-600">Daalwijkdreef 47<br />1103 AD Amsterdam</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 bg-[#04adea]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">Business Hours</h3>
+                    <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p class="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Placeholder - Loaded dynamically -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Main JavaScript -->
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/main.js?v=20260116154154"></script>
+  
+  <!-- Form Handlers -->
+  <script src="assets/js/form-handlers.js"></script>
+</body>
+</html>

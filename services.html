@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favinc.png">
+  <!-- SEO Meta Tags - These will be automatically updated by seo.js -->
+  <title>Our Services | SAP Consulting, Implementation & Support | Incorvix</title>
+  <meta name="description" content="Expert SAP services including strategic consulting, end-to-end implementation, managed services, cloud migration, training, and SAP AI solutions tailored to your business needs.">
+  <meta name="keywords" content="SAP services, SAP consulting, SAP implementation, S/4HANA migration, SAP support, SAP training, SAP AI services, cloud migration">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css?v=20260116154154">
+  
+  <!-- Tailwind CSS CDN -->
+  <script>
+    // Suppress Tailwind CDN warning for HTML website
+    const originalWarn = console.warn;
+    console.warn = function(...args) {
+      if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
+        return; // Suppress Tailwind CDN warning
+      }
+      originalWarn.apply(console, args);
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'vankine-blue': '#04adea',
+            'vankine-blue-600': '#0394c7',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Additional CSS to ensure container max-widths AFTER Tailwind loads -->
+  <style>
+    /* FORCE all containers to have max-width with highest specificity */
+    body .container,
+    body .container.mx-auto,
+    body div.container,
+    html body .container,
+    html body .container.mx-auto,
+    html body div.container {
+      max-width: 1360px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: auto !important;
+    }
+    
+    @media (min-width: 640px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 640px !important;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 768px !important;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+    
+    @media (min-width: 1536px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+  </style>
+  
+  <!-- JavaScript to force container widths -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function forceWidths() {
+        document.querySelectorAll('.container, .container.mx-auto, div.container').forEach(function(el) {
+          if (window.innerWidth >= 1024) {
+            el.style.setProperty('max-width', '1360px', 'important');
+            el.style.setProperty('margin-left', 'auto', 'important');
+            el.style.setProperty('margin-right', 'auto', 'important');
+          }
+        });
+      }
+      forceWidths();
+      setTimeout(forceWidths, 100);
+      setTimeout(forceWidths, 500);
+      window.addEventListener('resize', forceWidths);
+    });
+  </script>
+  
+  <!-- SEO Script - Loads meta tags from JSON -->
+  <script src="assets/js/seo.js" defer></script>
+  
+  <!-- Fallback for file:// protocol - loads header/footer inline -->
+  <script src="assets/js/open-browser.js"></script>
+</head>
+<body>
+  <!-- Header Placeholder - Loaded dynamically -->
+  <div id="header-placeholder"></div>
+  
+  <!-- Main Content -->
+  <main>
+    <div class="min-h-screen pt-20 bg-gray-50">
+      <div class="container mx-auto px-4 py-16">
+        <div class="text-center mb-16">
+          <span class="text-[#04adea] font-semibold text-sm uppercase tracking-wider">Our Services</span>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6">
+            SAP Services Tailored to Your Business
+          </h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Expert consulting, implementation, support, cloud, and training services that turn SAP into a
+            measurable business advantage.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service 1: Strategic SAP Consulting -->
+          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-8 h-8 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">Strategic SAP Consulting</h3>
+              <p class="text-gray-600 leading-relaxed mb-6">We turn SAP into a true business enabler with clear roadmaps, process evaluations, and the right module, deployment, and integration choices for scalable, compliant innovation.</p>
+            </div>
+            <div class="space-y-2">
+              <h4 class="font-semibold text-gray-900 mb-3">Key Features:</h4>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Transformation roadmap aligned to business goals</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Process evaluation and automation opportunities</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Module, deployment, and integration selection</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 2: End-to-End Implementation & Integration -->
+          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-8 h-8 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">End-to-End Implementation & Integration</h3>
+              <p class="text-gray-600 leading-relaxed mb-6">From concept to go-live: implement SAP solutions, integrate with enterprise systems, and migrate data with integrity using a proven, low-risk methodology.</p>
+            </div>
+            <div class="space-y-2">
+              <h4 class="font-semibold text-gray-900 mb-3">Key Features:</h4>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Implement S/4HANA, Ariba, SuccessFactors</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Integrate SAP with CRM, HR, IoT, analytics, legacy</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Data migration of master and transactional data</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 3: Managed Services & Application Support -->
+          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-8 h-8 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">Managed Services & Application Support</h3>
+              <p class="text-gray-600 leading-relaxed mb-6">Post-go-live support with 24/7 monitoring, optimization, updates, and proactive resolution to keep operations agile while reducing TCO.</p>
+            </div>
+            <div class="space-y-2">
+              <h4 class="font-semibold text-gray-900 mb-3">Key Features:</h4>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">24/7 monitoring and performance optimization</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Patches, upgrades, and compliance alignment</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Proactive problem solving and rapid resolution</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 4: Cloud & SAP S/4HANA Services -->
+          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-8 h-8 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">Cloud & SAP S/4HANA Services</h3>
+              <p class="text-gray-600 leading-relaxed mb-6">Unlock cloud scalability and resilience with phased S/4HANA migrations, flexible hosting models, and secure, scalable architectures.</p>
+            </div>
+            <div class="space-y-2">
+              <h4 class="font-semibold text-gray-900 mb-3">Key Features:</h4>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Phased ECC → S/4HANA migration</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Public, private, or hybrid cloud hosting</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Scale capacity as your business grows</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 5: Training & Change Management -->
+          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-8 h-8 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">Training & Change Management</h3>
+              <p class="text-gray-600 leading-relaxed mb-6">Drive adoption with role-specific training, structured change programs, and user-friendly documentation so teams master SAP.</p>
+            </div>
+            <div class="space-y-2">
+              <h4 class="font-semibold text-gray-900 mb-3">Key Features:</h4>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Role-based training per SAP module</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Change programs to drive adoption</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Documentation and knowledge transfer</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 6: SAP AI Services -->
+          <div class="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-8 h-8 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">SAP AI Services</h3>
+              <p class="text-gray-600 leading-relaxed mb-6">Unlock the true potential of your business data with SAP AI-powered solutions. Our SAP AI Services help organizations accelerate decision-making, improve efficiency, and create intelligent business processes by embedding Artificial Intelligence directly into your SAP landscape.</p>
+            </div>
+            <div class="space-y-2">
+              <h4 class="font-semibold text-gray-900 mb-3">Key Features:</h4>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">AI-powered business intelligence and analytics</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Intelligent process automation and optimization</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-[#04adea] rounded-full"></div>
+                <span class="text-gray-600 text-sm">Machine learning integration with SAP systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-16">
+          <div class="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
+            <p class="text-gray-600 mb-6">
+              Contact our experts today to discuss how our services can transform your business operations.
+            </p>
+            <button onclick="openConsultationDialog()" class="bg-[#04adea] hover:bg-[#0394c7] text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105">
+              Schedule a Consultation
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Placeholder - Loaded dynamically -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Main JavaScript -->
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/main.js?v=20260116154154"></script>
+</body>
+</html>

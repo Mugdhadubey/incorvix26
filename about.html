@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favinc.png">
+  <!-- SEO Meta Tags - These will be automatically updated by seo.js -->
+  <title>About Us | Incorvix - Making Business Work Smarter</title>
+  <meta name="description" content="Learn about Incorvix BV, a trusted SAP transformation partner helping businesses grow smarter with innovative solutions, long-term partnerships, and measurable results since 2025.">
+  <meta name="keywords" content="about Incorvix, SAP partner, business transformation, SAP consulting company, digital transformation services">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css?v=20260116154154">
+  
+  <!-- Tailwind CSS CDN -->
+  <script>
+    // Suppress Tailwind CDN warning for HTML website
+    const originalWarn = console.warn;
+    console.warn = function(...args) {
+      if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
+        return; // Suppress Tailwind CDN warning
+      }
+      originalWarn.apply(console, args);
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Additional CSS to ensure container max-widths AFTER Tailwind loads -->
+  <style>
+    /* FORCE all containers to have max-width with highest specificity */
+    body .container,
+    body .container.mx-auto,
+    body div.container,
+    html body .container,
+    html body .container.mx-auto,
+    html body div.container {
+      max-width: 1360px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: auto !important;
+    }
+    
+    @media (min-width: 640px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 640px !important;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 768px !important;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+    
+    @media (min-width: 1536px) {
+      body .container,
+      body .container.mx-auto,
+      body div.container {
+        max-width: 1360px !important;
+      }
+    }
+  </style>
+  
+  <!-- JavaScript to force container widths -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function forceWidths() {
+        document.querySelectorAll('.container, .container.mx-auto, div.container').forEach(function(el) {
+          if (window.innerWidth >= 1024) {
+            el.style.setProperty('max-width', '1360px', 'important');
+            el.style.setProperty('margin-left', 'auto', 'important');
+            el.style.setProperty('margin-right', 'auto', 'important');
+          }
+        });
+      }
+      forceWidths();
+      setTimeout(forceWidths, 100);
+      setTimeout(forceWidths, 500);
+    });
+  </script>
+  
+  <!-- SEO Script - Loads meta tags from JSON -->
+  <script src="assets/js/seo.js" defer></script>
+  
+  <!-- Fallback for file:// protocol - loads header/footer inline -->
+  <script src="assets/js/open-browser.js"></script>
+</head>
+<body>
+  <!-- Header Placeholder - Loaded dynamically -->
+  <div id="header-placeholder"></div>
+  
+  <!-- Main Content -->
+  <main>
+    <div class="min-h-screen pt-20 bg-gray-50">
+      <div class="container mx-auto px-4 py-16">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-12">
+            <span class="text-[#04adea] font-semibold text-sm uppercase tracking-wider">About Incorvix BV</span>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-3">Making Business Work Smarter.</h1>
+            <p class="text-gray-600">Established 2025</p>
+          </div>
+
+          <!-- Company Intro -->
+          <div class="grid md:grid-cols-2 gap-10 items-center mb-12">
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+                alt="Incorvix team collaboration"
+                class="w-full h-80 md:h-[420px] object-cover rounded-2xl shadow-xl"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <span class="inline-block text-[#04adea] font-semibold text-sm uppercase tracking-wider mb-2">Who We Are</span>
+              <h2 class="text-3xl font-bold text-gray-900 mb-4">A Partner for Smart, Lasting Transformation</h2>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                At Incorvix, we help businesses unlock their potential with innovative, reliable, and future‑ready SAP
+                solutions. Combining deep technical expertise with industry knowledge, we guide you from strategy and
+                implementation to ongoing optimization—so technology investments deliver measurable value.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mission & Vision -->
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+              <div class="w-14 h-14 rounded-xl bg-[#04adea]/10 flex items-center justify-center mb-4">
+                <span class="text-2xl">🎯</span>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">Mission</h3>
+              <p class="text-gray-600 leading-relaxed">
+                We help businesses grow smarter with SAP solutions that simplify operations, inspire innovation,
+                and deliver measurable results.
+              </p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+              <div class="w-14 h-14 rounded-xl bg-[#04adea]/10 flex items-center justify-center mb-4">
+                <span class="text-2xl">🌍</span>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">Vision</h3>
+              <p class="text-gray-600 leading-relaxed">
+                To be the partner of choice for organizations seeking technology-driven transformation and lasting
+                success.
+              </p>
+            </div>
+          </div>
+
+          <!-- What Sets Us Apart -->
+          <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">What Sets Us Apart</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+              <div class="text-center">
+                <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span class="text-2xl">🤝</span>
+                </div>
+                <h4 class="text-lg font-semibold mb-2">Long-term Partnerships</h4>
+                <p class="text-gray-600">We are more than consultants—we're committed to measurable outcomes.</p>
+              </div>
+              <div class="text-center">
+                <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span class="text-2xl">🧭</span>
+                </div>
+                <h4 class="text-lg font-semibold mb-2">Industry Expertise</h4>
+                <p class="text-gray-600">Healthcare, Manufacturing, Oil & Gas, Retail, and Technology.</p>
+              </div>
+              <div class="text-center">
+                <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span class="text-2xl">📈</span>
+                </div>
+                <h4 class="text-lg font-semibold mb-2">Results You Can Measure</h4>
+                <p class="text-gray-600">Every engagement is designed to create lasting value.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Callout -->
+          <div class="rounded-2xl p-8 text-center bg-gradient-to-r from-[#04adea] to-[#0394c7] text-white">
+            <h3 class="text-3xl font-bold mb-2">Ready to make business work smarter?</h3>
+            <p class="opacity-90 mb-4">Let's design, implement, and optimize SAP solutions for your goals.</p>
+            <div class="inline-flex items-center space-x-3 bg-white/10 rounded-full px-6 py-3">
+              <span>Incorvix BV • SAP Transformation Partner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Placeholder - Loaded dynamically -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Consultation Modal Placeholder - Will be loaded dynamically -->
+  <div id="consultation-modal-placeholder"></div>
+
+  <!-- Main JavaScript -->
+  <script src="assets/js/toast.js"></script>
+  <script src="assets/js/main.js?v=20260116154154"></script>
+</body>
+</html>
+

@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" style="margin: 0; padding: 0; width: 100%; overflow-x: hidden;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Cache Control - Prevent Browser Caching -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favinc.png">
+  <!-- SEO Meta Tags - These will be automatically updated by seo.js -->
+  <title>Home | Incorvix - SAP Solutions & Digital Transformation</title>
+  <meta name="description" content="Incorvix provides innovative SAP solutions, digital transformation services, and expert consulting to help businesses unlock their potential with reliable, future-ready technology.">
+  <meta name="keywords" content="SAP solutions, digital transformation, SAP consulting, S/4HANA, business transformation, SAP implementation, cloud solutions">
+  
+  <!-- Custom Styles - Load FIRST, then Tailwind will override but we'll use !important -->
+  <link rel="stylesheet" href="assets/css/style.css?v=20260116154154">
+  
+  <!-- Tailwind CSS CDN -->
+  <script>
+    // Suppress Tailwind CDN warning for HTML website
+    const originalWarn = console.warn;
+    console.warn = function(...args) {
+      if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) {
+        return; // Suppress Tailwind CDN warning
+      }
+      originalWarn.apply(console, args);
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'vankine-blue': '#04adea',
+            'vankine-blue-600': '#0394c7',
+          },
+        }
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          sm: '1rem',
+          md: '1.5rem',
+          lg: '2rem',
+          xl: '2rem',
+        },
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+          '2xl': '1536px',
+        },
+      }
+    }
+  </script>
+  
+  <!-- Additional CSS to ensure container max-widths AFTER Tailwind loads -->
+  <style>
+    /* Set initial header state for homepage - white text on transparent background */
+    #main-header {
+      background-color: transparent !important;
+    }
+    
+    /* On mobile, always keep header transparent - disable sticky header completely */
+    @media (max-width: 1023px) {
+      #main-header,
+      #main-header.fixed,
+      #main-header[class*="fixed"],
+      #main-header[class*="top-0"],
+      #main-header.header-scrolled,
+      #main-header.bg-white,
+      #main-header.shadow-lg,
+      #main-header[style*="background-color: rgb(255, 255, 255)"],
+      #main-header[style*="background-color:#ffffff"],
+      #main-header[style*="position: fixed"],
+      #main-header[style*="position:fixed"] {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        will-change: auto !important;
+      }
+      #main-header.header-scrolled .nav-link {
+        color: inherit !important;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      /* Default: white text when header is transparent */
+      #main-header:not(.header-scrolled) .nav-link {
+        color: #ffffff !important;
+      }
+      #main-header:not(.header-scrolled) .nav-link:hover {
+        color: rgba(255, 255, 255, 0.8) !important;
+      }
+      
+      /* Sticky header: black text when scrolled */
+      #main-header.header-scrolled {
+        background-color: #ffffff !important;
+      }
+      #main-header.header-scrolled .nav-link {
+        color: #374151 !important;
+      }
+      #main-header.header-scrolled .nav-link:hover {
+        color: #04adea !important;
+      }
+    }
+    
+    /* FORCE all containers to have max-width EXCEPT hero section */
+    /* Use highest specificity and !important to override everything */
+    
+    /* Base rule - applies to all containers immediately */
+    body .container,
+    body .container.mx-auto,
+    body div.container,
+    html body .container,
+    html body .container.mx-auto,
+    html body div.container {
+      max-width: 1360px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: auto !important;
+    }
+    
+    /* Hero section containers should remain full width */
+    #hero-section .container,
+    #hero-section .container.mx-auto,
+    #hero-section div.container,
+    #hero-section > div > div.container,
+    #hero-section > div.container {
+      max-width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 100% !important;
+    }
+    
+    /* Responsive breakpoints - more specific selectors */
+    @media (min-width: 640px) {
+      body .container:not(#hero-section .container):not(#hero-section .container.mx-auto):not(#hero-section div.container),
+      body .container.mx-auto:not(#hero-section .container):not(#hero-section .container.mx-auto),
+      body div.container:not(#hero-section div.container),
+      html body .container:not(#hero-section .container),
+      html body .container.mx-auto:not(#hero-section .container.mx-auto),
+      html body div.container:not(#hero-section div.container) {
+        max-width: 640px !important;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      body .container:not(#hero-section .container):not(#hero-section .container.mx-auto):not(#hero-section div.container),
+      body .container.mx-auto:not(#hero-section .container):not(#hero-section .container.mx-auto),
+      body div.container:not(#hero-section div.container),
+      html body .container:not(#hero-section .container),
+      html body .container.mx-auto:not(#hero-section .container.mx-auto),
+      html body div.container:not(#hero-section div.container) {
+        max-width: 768px !important;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      body .container:not(#hero-section .container):not(#hero-section .container.mx-auto):not(#hero-section div.container),
+      body .container.mx-auto:not(#hero-section .container):not(#hero-section .container.mx-auto),
+      body div.container:not(#hero-section div.container),
+      html body .container:not(#hero-section .container),
+      html body .container.mx-auto:not(#hero-section .container.mx-auto),
+      html body div.container:not(#hero-section div.container) {
+        max-width: 1360px !important;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      body .container:not(#hero-section .container):not(#hero-section .container.mx-auto):not(#hero-section div.container),
+      body .container.mx-auto:not(#hero-section .container):not(#hero-section .container.mx-auto),
+      body div.container:not(#hero-section div.container),
+      html body .container:not(#hero-section .container),
+      html body .container.mx-auto:not(#hero-section .container.mx-auto),
+      html body div.container:not(#hero-section div.container) {
+        max-width: 1360px !important;
+      }
+    }
+    
+    @media (min-width: 1536px) {
+      body .container:not(#hero-section .container):not(#hero-section .container.mx-auto):not(#hero-section div.container),
+      body .container.mx-auto:not(#hero-section .container):not(#hero-section .container.mx-auto),
+      body div.container:not(#hero-section div.container),
+      html body .container:not(#hero-section .container),
+      html body .container.mx-auto:not(#hero-section .container.mx-auto),
+      html body div.container:not(#hero-section div.container) {
+        max-width: 1360px !important;
+      }
+    }
+  </style>
+  
+  <!-- Additional JavaScript to force container max-width AFTER page load -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Force container max-widths after everything loads
+      function forceContainerWidths() {
+        const containers = document.querySelectorAll('.container:not(#hero-section .container):not(#hero-section .container.mx-auto):not(#hero-section div.container)');
+        containers.forEach(function(container) {
+          if (!container.closest('#hero-section')) {
+            if (window.innerWidth >= 1024) {
+              container.style.setProperty('max-width', '1360px', 'important');
+              container.style.setProperty('margin-left', 'auto', 'important');
+              container.style.setProperty('margin-right', 'auto', 'important');
+            } else if (window.innerWidth >= 768) {
+              container.style.setProperty('max-width', '768px', 'important');
+              container.style.setProperty('margin-left', 'auto', 'important');
+              container.style.setProperty('margin-right', 'auto', 'important');
+            }
+          }
+        });
+      }
+      
+      // Run immediately
+      forceContainerWidths();
+      
+      // Run after a short delay to override Tailwind
+      setTimeout(forceContainerWidths, 100);
+      setTimeout(forceContainerWidths, 500);
+      
+      // Run on window resize
+      window.addEventListener('resize', forceContainerWidths);
+    });
+  </script>
+  
+  <!-- SEO Script - Loads meta tags from JSON -->
+  <script src="assets/js/seo.js?v=20250117" defer></script>
+  
+  <!-- Fallback for file:// protocol - loads header/footer inline -->
+  <script>
+    // Check immediately if file:// protocol (silent check)
+    // Inline loader will activate automatically if file:// protocol detected
+  </script>
+  <script src="assets/js/open-browser.js?v=20250117"></script>
+</head>
+<body style="margin: 0; padding: 0; width: 100%; overflow-x: hidden;">
+  <!-- Hero Section with Header overlay -->
+  <section class="relative h-screen overflow-hidden w-full" id="hero-section">
+    <!-- Background Images - Carousel -->
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-100" id="slide-1">
+      <img src="assets/images/Banner 3 (1) (1).jpg" alt="Slide 1" class="w-full h-full object-cover object-center" loading="lazy">
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide-2">
+      <img src="https://cdn.builder.io/api/v1/image/assets%2F46cbec786d65480ebb49d38fdc08725e%2F8f1a4f059af74a73bd96e3d152926757?format=webp&width=800" alt="Slide 2" class="w-full h-full object-cover object-top" loading="lazy">
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+    <div class="absolute inset-0 transition-opacity duration-1000 opacity-0" id="slide-3">
+      <img src="assets/images/banner1 (1) (1).jpg" alt="Slide 3" class="w-full h-full object-cover object-top" loading="lazy">
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+
+    <!-- Header overlay - Loaded dynamically -->
+    <div id="header-placeholder" class="absolute top-0 left-0 right-0 z-20 w-full"></div>
+
+    <!-- Content Container -->
+    <div class="relative z-10 h-full flex items-center w-full">
+      <div class="w-full max-w-full px-4 md:px-8 lg:px-12">
+        <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 items-center h-full w-full">
+          <!-- Left Content -->
+          <div class="relative h-full flex items-center w-full">
+            <!-- Content -->
+            <div class="relative z-20 py-12 md:py-16 lg:py-20 w-full max-w-md md:max-w-none" style="max-width: 100%;">
+              <div id="hero-content" class="animate-fade-in">
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6" id="hero-title">
+                  Making Business Work Smarter
+                </h1>
+                <p class="text-base md:text-xl text-white/90 mb-8 leading-relaxed max-w-md md:max-w-5xl" id="hero-subtitle">
+                  We help businesses unlock their true potential through innovative, reliable, and future-ready SAP solutions that simplify operations, inspire innovation, and deliver measurable results.
+                </p>
+                <a href="services.html" id="hero-button" class="inline-flex items-center bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-md font-medium text-lg transition-all duration-300 transform hover:scale-105 group">
+                  Our Services
+                  <svg class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side - Empty space for background image visibility -->
+          <div class="hidden lg:block"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide Indicators -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+      <button onclick="changeSlide(0)" class="w-3 h-3 rounded-full transition-all duration-300 bg-white" id="indicator-0"></button>
+      <button onclick="changeSlide(1)" class="w-3 h-3 rounded-full transition-all duration-300 bg-white/50" id="indicator-1"></button>
+      <button onclick="changeSlide(2)" class="w-3 h-3 rounded-full transition-all duration-300 bg-white/50" id="indicator-2"></button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left - Image -->
+        <div class="relative">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Software development team at work"
+              class="w-full h-[500px] object-cover transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          </div>
+          
+          <!-- Floating card -->
+          <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-[#04adea] mb-1">10+</div>
+              <div class="text-sm text-gray-600">Years Experience</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right - Content -->
+        <div class="lg:pl-8">
+          <div class="mb-6">
+            <span class="text-[#04adea] font-semibold text-sm uppercase tracking-wider">About Incorvix</span>
+            <h2 class="text-4xl font-bold text-gray-900 mt-2 mb-4">
+              Empowering Businesses Through Smart Technology Solutions
+            </h2>
+            <p class="text-gray-600 text-base leading-relaxed mb-6">
+              With over a decade of expertise in enterprise software solutions, Incorvix is your trusted 
+              SAP Gold Partner. We specialize in transforming businesses through innovative technology, 
+              helping organizations unlock their true potential and achieve sustainable growth in the digital age.
+            </p>
+          </div>
+
+          <!-- Features list -->
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-[#04adea] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-gray-700 font-medium">SAP Implementation & Integration</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-[#04adea] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-gray-700 font-medium">Enterprise Resource Planning (ERP)</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-[#04adea] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-gray-700 font-medium">Digital Transformation Consulting</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-[#04adea] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-gray-700 font-medium">Cloud Migration & Optimization</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-[#04adea] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-gray-700 font-medium">Custom Software Development</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-[#04adea] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-gray-700 font-medium">24/7 Technical Support & Maintenance</span>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <a href="about.html" class="inline-flex items-center bg-[#04adea] hover:bg-[#0394c7] text-white px-6 py-3 rounded-full font-medium group">
+            Learn More
+            <svg class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="text-[#04adea] font-semibold text-sm uppercase tracking-wider">Our Core Services</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-2 mb-4">
+          Enterprise Solutions We Deliver
+        </h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          Explore our comprehensive range of technology solutions designed to accelerate your business growth and digital transformation journey.
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service 1: Strategic SAP Consulting -->
+        <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Strategic SAP Consulting"
+              class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-[#04adea]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div class="flex space-x-4">
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                </a>
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="absolute top-4 left-4">
+              <span class="bg-[#04adea] text-white px-3 py-1 rounded-full text-sm font-medium">Consulting</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#04adea] transition-colors">Strategic SAP Consulting</h3>
+            <p class="text-gray-600">Turn SAP into a business enabler with clear transformation roadmaps, process evaluation to identify automation opportunities, and selection of the right modules, deployment models, and integrations—focused on scalability, compliance, and measurable value.</p>
+          </div>
+        </div>
+
+        <!-- Service 2: End-to-End Implementation -->
+        <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="End-to-End Implementation & Integration"
+              class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-[#04adea]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div class="flex space-x-4">
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                </a>
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="absolute top-4 left-4">
+              <span class="bg-[#04adea] text-white px-3 py-1 rounded-full text-sm font-medium">Implementation</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#04adea] transition-colors">End-to-End Implementation & Integration</h3>
+            <p class="text-gray-600">From concept to go-live: implement S/4HANA, SAP Ariba, SuccessFactors and more with minimal disruption; integrate SAP with CRM, HR, IoT, analytics, and legacy systems; and migrate data with integrity using a proven, risk-reducing methodology.</p>
+          </div>
+        </div>
+
+        <!-- Service 3: Managed Services -->
+        <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Managed Services & Application Support"
+              class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-[#04adea]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div class="flex space-x-4">
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                </a>
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="absolute top-4 left-4">
+              <span class="bg-[#04adea] text-white px-3 py-1 rounded-full text-sm font-medium">Managed Services</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#04adea] transition-colors">Managed Services & Application Support</h3>
+            <p class="text-gray-600">Post-go-live 24/7 monitoring, performance optimization, patching and upgrades, compliance alignment, and proactive issue resolution—keeping operations agile while lowering total cost of ownership.</p>
+          </div>
+        </div>
+
+        <!-- Service 4: Cloud & SAP S/4HANA -->
+        <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Cloud & SAP S/4HANA Services"
+              class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-[#04adea]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div class="flex space-x-4">
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                </a>
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="absolute top-4 left-4">
+              <span class="bg-[#04adea] text-white px-3 py-1 rounded-full text-sm font-medium">Cloud & S/4HANA</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#04adea] transition-colors">Cloud & SAP S/4HANA Services</h3>
+            <p class="text-gray-600">Phased, low-risk migration from ECC to S/4HANA; flexible public, private, or hybrid cloud hosting; and scalable architectures that enhance flexibility, resilience, and innovation without compromising security.</p>
+          </div>
+        </div>
+
+        <!-- Service 5: Training & Change Management -->
+        <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Training & Change Management"
+              class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-[#04adea]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div class="flex space-x-4">
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                </a>
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="absolute top-4 left-4">
+              <span class="bg-[#04adea] text-white px-3 py-1 rounded-full text-sm font-medium">Enablement</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#04adea] transition-colors">Training & Change Management</h3>
+            <p class="text-gray-600">Role-specific training, change management programs that drive adoption, and user-friendly documentation and knowledge transfer—ensuring teams not only learn SAP but master it.</p>
+          </div>
+        </div>
+
+        <!-- Service 6: SAP AI Services -->
+        <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="SAP AI Services"
+              class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-[#04adea]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div class="flex space-x-4">
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                </a>
+                <a href="services.html" class="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <svg class="w-5 h-5 text-[#04adea]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="absolute top-4 left-4">
+              <span class="bg-[#04adea] text-white px-3 py-1 rounded-full text-sm font-medium">AI & Analytics</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#04adea] transition-colors">SAP AI Services</h3>
+            <p class="text-gray-600">Unlock the true potential of your business data with SAP AI-powered solutions. Our SAP AI Services help organizations accelerate decision-making, improve efficiency, and create intelligent business processes by embedding Artificial Intelligence directly into your SAP landscape.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- View All Button -->
+      <div class="text-center mt-12">
+        <a href="services.html" class="inline-block bg-[#04adea] hover:bg-[#0394c7] text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105">
+          View All Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted Clients Section -->
+  <section class="py-20 relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="relative z-10 container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="text-[#04adea] font-semibold text-sm uppercase tracking-wider">Trusted by Clients</span>
+        <h2 class="text-4xl font-bold text-white mt-2 mb-4">
+          Trusted by Leading Companies
+        </h2>
+        <p class="text-white/90 text-lg max-w-2xl mx-auto">
+          We're proud to partner with industry leaders and help them achieve their digital transformation goals with our SAP solutions.
+        </p>
+      </div>
+
+      <!-- Continuous Scrolling Carousel -->
+      <div class="relative max-w-7xl mx-auto">
+        <div class="overflow-hidden" id="clients-carousel">
+          <div class="flex gap-8 animate-scroll" style="animation-duration: 40s; animation-timing-function: linear;">
+            <!-- Client logos will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <p class="text-white/70 text-sm">
+          Join hundreds of companies that trust Incorvix for their SAP solutions
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="text-[#04adea] font-semibold text-sm uppercase tracking-wider">Industries We Serve</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-2 mb-4">
+          Industries We Serve
+        </h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          SAP solutions tailored for healthcare, manufacturing, oil & gas, retail, and technology sectors.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
+        <!-- Healthcare -->
+        <div class="text-center group hover:transform hover:scale-105 transition-all duration-500 border border-gray-200 rounded-lg p-6 hover:border-[#04adea]/30">
+          <div class="mb-6">
+            <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mx-auto group-hover:bg-[#04adea] transition-all duration-300">
+              <span class="text-3xl">🏥</span>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-[#04adea] transition-colors duration-300">Health Care</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Digital healthcare for better outcomes.</p>
+        </div>
+
+        <!-- Manufacturing -->
+        <div class="text-center group hover:transform hover:scale-105 transition-all duration-500 border border-gray-200 rounded-lg p-6 hover:border-[#04adea]/30">
+          <div class="mb-6">
+            <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mx-auto group-hover:bg-[#04adea] transition-all duration-300">
+              <span class="text-3xl">🏭</span>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-[#04adea] transition-colors duration-300">Manufacturing</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Smart agile production.</p>
+        </div>
+
+        <!-- Oil & Gas -->
+        <div class="text-center group hover:transform hover:scale-105 transition-all duration-500 border border-gray-200 rounded-lg p-6 hover:border-[#04adea]/30">
+          <div class="mb-6">
+            <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mx-auto group-hover:bg-[#04adea] transition-all duration-300">
+              <span class="text-3xl">⛽</span>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-[#04adea] transition-colors duration-300">Oil & Gas</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Efficient, safe energy operations.</p>
+        </div>
+
+        <!-- Retail -->
+        <div class="text-center group hover:transform hover:scale-105 transition-all duration-500 border border-gray-200 rounded-lg p-6 hover:border-[#04adea]/30">
+          <div class="mb-6">
+            <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mx-auto group-hover:bg-[#04adea] transition-all duration-300">
+              <span class="text-3xl">🛒</span>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-[#04adea] transition-colors duration-300">Retail</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Unified, data-driven retailing.</p>
+        </div>
+
+        <!-- Technology -->
+        <div class="text-center group hover:transform hover:scale-105 transition-all duration-500 border border-gray-200 rounded-lg p-6 hover:border-[#04adea]/30">
+          <div class="mb-6">
+            <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mx-auto group-hover:bg-[#04adea] transition-all duration-300">
+              <span class="text-3xl">💻</span>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-[#04adea] transition-colors duration-300">Technology</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Innovation for digital leaders.</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="industry.html" class="inline-block bg-[#04adea] hover:bg-[#0394c7] text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105">
+          View All Industries
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="text-[#04adea] font-semibold text-sm uppercase tracking-wider">Why Choose Incorvix</span>
+        <h2 class="text-4xl font-bold text-gray-900 mt-2 mb-4">
+          Why Choose Incorvix?
+        </h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          Partner with us for innovative SAP solutions, expert guidance, and reliable support that drives your business forward.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <!-- Expert Team -->
+        <div class="bg-white rounded-xl border border-gray-100 p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group">
+          <div class="text-center">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mx-auto group-hover:bg-[#04adea] transition-all duration-300">
+                <svg class="w-8 h-8 text-[#04adea] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-[#04adea] transition-colors duration-300">Expert Team</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Skilled professionals with deep industry knowledge and experience.</p>
+          </div>
+        </div>
+
+        <!-- Proven Results -->
+        <div class="bg-white rounded-xl border border-gray-100 p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group">
+          <div class="text-center">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mx-auto group-hover:bg-[#04adea] transition-all duration-300">
+                <svg class="w-8 h-8 text-[#04adea] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-[#04adea] transition-colors duration-300">Proven Results</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Delivered 500+ successful projects with measurable business outcomes.</p>
+          </div>
+        </div>
+
+        <!-- Reliable Solutions -->
+        <div class="bg-white rounded-xl border border-gray-100 p-8 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group">
+          <div class="text-center">
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-[#04adea]/10 rounded-xl flex items-center justify-center mx-auto group-hover:bg-[#04adea] transition-all duration-300">
+                <svg class="w-8 h-8 text-[#04adea] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3 group-hover:text-[#04adea] transition-colors duration-300">Reliable Solutions</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Future-ready technology solutions built for scalability and growth.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="about.html" class="inline-block bg-[#04adea] hover:bg-[#0394c7] text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105">
+          Learn More About Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA Section -->
+  <section class="py-20 relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="absolute inset-0 bg-black/80"></div>
+    <div class="relative z-10 container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          Ready to Transform Your Business?
+        </h2>
+        <p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+          Let's discuss how our innovative SAP solutions and enterprise software can accelerate your digital transformation journey and drive sustainable business growth.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+          <button onclick="openConsultationDialog()" class="bg-[#04adea] hover:bg-[#0394c7] text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 transform hover:scale-105 group inline-flex items-center">
+            Get Started Today
+            <svg class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </button>
+          <button onclick="openConsultationDialog()" class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 bg-transparent">
+            Schedule Consultation
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Placeholder - Loaded dynamically -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Consultation Modal Placeholder - Will be loaded dynamically -->
+  <div id="consultation-modal-placeholder"></div>
+
+  <!-- Main JavaScript -->
+  <script src="assets/js/toast.js?v=20250117"></script>
+  <script src="assets/js/main.js?v=20260116154154"></script>
+  <script src="assets/js/hero-carousel.js?v=20250117"></script>
+  <script src="assets/js/clients-carousel.js?v=20250117"></script>
+</body>
+</html>

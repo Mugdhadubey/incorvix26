@@ -1,0 +1,35 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Incorvix BV",
+  "url": "https://incorvix.com",
+  "logo": "https://incorvix.com/assets/images/logo-incorvix.png",
+  "description": "SAP solutions and digital transformation partner helping businesses unlock their potential with innovative, reliable, and future-ready SAP solutions.",
+  "foundingDate": "2025",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "contact@incorvix.nl",
+    "availableLanguage": ["English"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Daalwijkdreef 47",
+    "addressLocality": "Amsterdam",
+    "postalCode": "1103 AD",
+    "addressCountry": "NL"
+  },
+  "sameAs": [
+    "https://linkedin.com/company/incorvix",
+    "https://twitter.com/incorvix"
+  ],
+  "areaServed": "Worldwide",
+  "serviceType": [
+    "SAP Consulting",
+    "SAP Implementation",
+    "SAP Support",
+    "Cloud Migration",
+    "Digital Transformation"
+  ]
+}
+

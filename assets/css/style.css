@@ -1,0 +1,394 @@
+/* Tailwind CSS Base */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Custom Variables */
+:root {
+  --vankine-blue: #04adea;
+  --vankine-blue-600: #0394c7;
+  --dark-bg: #0f1220;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure Header is Visible */
+#header-placeholder {
+  width: 100%;
+  min-height: 80px;
+}
+
+#header-placeholder header,
+#main-header {
+  width: 100% !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure Footer is Visible */
+#footer-placeholder {
+  width: 100%;
+  min-height: 200px;
+}
+
+#footer-placeholder footer {
+  width: 100% !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Header Styles - Desktop Default */
+header#main-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Mobile Header - Static Position (Not Sticky) - HIGHEST PRIORITY */
+@media (max-width: 1023px) {
+  /* Force static position on mobile - override everything including inline styles and classes */
+  header#main-header,
+  header#main-header.header-scrolled,
+  header#main-header.bg-white,
+  header#main-header.shadow-lg,
+  header#main-header[style*="position"],
+  header#main-header[style*="fixed"],
+  header#main-header[class*="fixed"],
+  header#main-header.fixed,
+  header#main-header[class*="top-0"] {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    will-change: auto !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  /* Mobile menu button - Ensure clickable above header */
+  #mobile-menu-btn {
+    z-index: 1001 !important;
+    position: relative !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    color: #374151 !important; /* Ensure icon is visible */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
+    user-select: none !important;
+  }
+  
+  /* Ensure button is not blocked by any overlay */
+  #mobile-menu-btn,
+  #mobile-menu-btn * {
+    pointer-events: auto !important;
+  }
+  
+  /* Ensure SVG icons are properly toggled */
+  #mobile-menu-btn svg {
+    color: inherit !important;
+  }
+  
+  /* Menu icon - visible by default */
+  #mobile-menu-btn #menu-icon {
+    display: block !important;
+  }
+  
+  /* Close icon - hidden by default */
+  #mobile-menu-btn #close-icon.hidden {
+    display: none !important;
+  }
+  
+  /* When menu is open: hide menu icon, show close icon */
+  #mobile-menu-btn #menu-icon.hidden {
+    display: none !important;
+  }
+  
+  #mobile-menu-btn #close-icon:not(.hidden) {
+    display: block !important;
+  }
+  
+  /* Mobile menu - Ensure visible above header */
+  #mobile-menu {
+    z-index: 1002 !important;
+    position: relative !important;
+    pointer-events: auto !important;
+    display: block !important;
+  }
+  
+  #mobile-menu.hidden {
+    display: none !important;
+  }
+  
+  #mobile-menu:not(.hidden) {
+    display: block !important;
+  }
+  
+  /* Ensure header container and flex container don't block clicks */
+  header#main-header > .container,
+  header#main-header > .container > div {
+    position: relative !important;
+    z-index: auto !important;
+  }
+  
+  /* Ensure button container allows clicks through */
+  header#main-header > .container > div > #mobile-menu-btn {
+    z-index: 1001 !important;
+    position: relative !important;
+  }
+  
+  /* Prevent sticky scroll behavior on mobile */
+  header#main-header.header-scrolled {
+    position: static !important;
+    top: auto !important;
+    transform: none !important;
+  }
+}
+
+/* Footer full-width with centered content inside */
+footer {
+  width: 100% !important;
+}
+
+/* Sections are full-width background */
+section {
+  width: 100%;
+  /* Sections themselves span full width for background colors/images */
+  /* But content inside uses container for centered gaps */
+}
+
+/* Sections with background images span full width */
+section[style*="background-image"],
+section[style*="background:"] {
+  width: 100%;
+}
+
+/* Header and footer are full-width */
+header#main-header {
+  width: 100% !important;
+}
+
+/* Container creates centered content with gaps on sides - CRITICAL for visible gaps */
+/* Force container max-widths with !important to override Tailwind CDN */
+/* IMPORTANT: Only apply to containers INSIDE sections, NOT to sections themselves */
+/* Set default max-width first, then override in media queries */
+.container:not(#hero-section .container):not(#hero-section div.container),
+.container.mx-auto:not(#hero-section .container):not(#hero-section div.container),
+div.container:not(#hero-section .container),
+section > .container:not(#hero-section .container),
+header .container,
+footer .container,
+section div.container:not(#hero-section div.container) {
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  box-sizing: border-box !important;
+  /* Default max-width for small screens */
+  max-width: 100% !important;
+}
+
+/* Responsive max-widths for container - creates visible gaps on larger screens */
+/* These max-widths ensure content doesn't stretch full-width, creating gaps */
+/* Using !important to override Tailwind CDN defaults */
+/* EXCLUDE hero section - it should be full width */
+@media (min-width: 640px) {
+  .container,
+  .container.mx-auto,
+  div.container,
+  section > .container,
+  section div.container,
+  header .container,
+  footer .container {
+    max-width: 640px !important;
+  }
+  
+  /* Hero section container should remain full width */
+  #hero-section .container,
+  #hero-section div.container {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .container,
+  .container.mx-auto,
+  div.container,
+  section > .container,
+  section div.container,
+  header .container,
+  footer .container {
+    max-width: 768px !important;
+  }
+  
+  /* Hero section container should remain full width */
+  #hero-section .container,
+  #hero-section div.container {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container,
+  .container.mx-auto,
+  div.container,
+  section > .container,
+  section div.container,
+  header .container,
+  footer .container {
+    max-width: 1360px !important; /* Creates visible gaps on desktop */
+  }
+  
+  /* Hero section container should remain full width */
+  #hero-section .container,
+  #hero-section div.container {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container,
+  .container.mx-auto,
+  div.container,
+  section > .container,
+  section div.container,
+  header .container,
+  footer .container {
+    max-width: 1360px !important; /* Maintains gaps on large screens */
+  }
+  
+  /* Hero section container should remain full width */
+  #hero-section .container,
+  #hero-section div.container {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container,
+  .container.mx-auto,
+  div.container,
+  section > .container,
+  section div.container,
+  header .container,
+  footer .container {
+    max-width: 1360px !important; /* Gaps remain visible on extra large screens */
+  }
+  
+  /* Hero section container should remain full width */
+  #hero-section .container,
+  #hero-section div.container {
+    max-width: 100% !important;
+  }
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--dark-bg);
+  color: white;
+}
+
+/* Utility Classes */
+.text-vankine-blue {
+  color: var(--vankine-blue);
+}
+
+.bg-vankine-blue {
+  background-color: var(--vankine-blue);
+}
+
+.hover\:bg-vankine-blue-600:hover {
+  background-color: var(--vankine-blue-600);
+}
+
+.hover\:text-vankine-blue:hover {
+  color: var(--vankine-blue);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Loading State */
+.header-loading,
+.footer-loading {
+  display: none;
+}
+
+/* Carousel Styles */
+.carousel-slide {
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Infinite Scroll Animation for Clients Carousel */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll linear infinite;
+  will-change: transform;
+}
+
+/* Pause animation on hover */
+#clients-carousel:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
+/* Smooth Transitions */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Debug Styles (remove in production) */
+.debug-placeholder {
+  border: 2px dashed red;
+  padding: 20px;
+  background: rgba(255, 0, 0, 0.1);
+  min-height: 100px;
+}

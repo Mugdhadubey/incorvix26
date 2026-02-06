@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Test - Incorvix</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #04adea;
+            border-bottom: 2px solid #04adea;
+            padding-bottom: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        .result.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .result.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .result.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        button {
+            background: #04adea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0394c7;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Form Submission Test Page</h1>
+    
+    <!-- Contact Form Test -->
+    <div class="test-section">
+        <h2>Test Contact Form</h2>
+        <p>This will test the contact form API endpoint.</p>
+        <button onclick="testContactForm()">Test Contact Form API</button>
+        <div id="contact-result" class="result"></div>
+    </div>
+
+    <!-- Consultation Form Test -->
+    <div class="test-section">
+      <h2>Test Consultation Form</h2>
+      <p>This will test the consultation form API endpoint.</p>
+      <button onclick="testConsultationForm()">Test Consultation Form API</button>
+      <div id="consultation-result" class="result"></div>
+    </div>
+
+    <!-- Career Form Test -->
+    <div class="test-section">
+      <h2>Test Career Application Form</h2>
+      <p>This will test the career application form API endpoint.</p>
+      <button onclick="testCareerForm()">Test Career Form API</button>
+      <div id="career-result" class="result"></div>
+    </div>
+
+    <!-- API Endpoint Check -->
+    <div class="test-section">
+        <h2>Check API Endpoints</h2>
+        <p>Verify if API endpoints are accessible.</p>
+        <button onclick="checkEndpoints()">Check Endpoints</button>
+        <div id="endpoint-result" class="result"></div>
+    </div>
+
+    <script>
+        function showResult(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            element.className = `result ${type}`;
+            element.style.display = 'block';
+            element.innerHTML = message;
+        }
+
+        async function testContactForm() {
+            const resultEl = document.getElementById('contact-result');
+            showResult('contact-result', 'Testing...', 'info');
+            
+            const testData = {
+                name: 'Test User',
+                email: 'test@example.com',
+                message: 'This is a test message from the form testing page.'
+            };
+
+            try {
+                console.log('Testing contact form with data:', testData);
+                console.log('Endpoint: /api/contact.php');
+                
+                const response = await fetch('/api/contact.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
+
+                const result = await response.json();
+                console.log('Response data:', result);
+
+                if (result.success) {
+                    showResult('contact-result', 
+                        `✅ SUCCESS!<br><br>
+                        <strong>Message:</strong> ${result.message}<br>
+                        <pre>${JSON.stringify(result, null, 2)}</pre>`, 
+                        'success');
+                } else {
+                    showResult('contact-result', 
+                        `❌ ERROR!<br><br>
+                        <strong>Error:</strong> ${result.error || 'Unknown error'}<br>
+                        <pre>${JSON.stringify(result, null, 2)}</pre>`, 
+                        'error');
+                }
+            } catch (error) {
+                console.error('Contact form test error:', error);
+                showResult('contact-result', 
+                    `❌ NETWORK ERROR!<br><br>
+                    <strong>Error:</strong> ${error.message}<br>
+                    <strong>Possible causes:</strong><br>
+                    • PHP file not found at /api/contact.php<br>
+                    • Server doesn't support PHP<br>
+                    • CORS issues<br>
+                    • Network connection problem<br><br>
+                    <strong>Check:</strong><br>
+                    1. Open browser console (F12) and check Network tab<br>
+                    2. Verify api/contact.php exists on server<br>
+                    3. Check server error logs<br><br>
+                    <pre>${error.stack || error.toString()}</pre>`, 
+                    'error');
+            }
+        }
+
+        async function testConsultationForm() {
+            const resultEl = document.getElementById('consultation-result');
+            showResult('consultation-result', 'Testing...', 'info');
+            
+            const testData = {
+                firstName: 'Test',
+                lastName: 'User',
+                email: 'test@example.com',
+                company: 'Test Company',
+                service: 'Strategic SAP Consulting',
+                message: 'This is a test consultation request.'
+            };
+
+            try {
+                console.log('Testing consultation form with data:', testData);
+                console.log('Endpoint: /api/consultation.php');
+                
+                const response = await fetch('/api/consultation.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+
+                console.log('Response status:', response.status);
+                const result = await response.json();
+                console.log('Response data:', result);
+
+                if (result.success) {
+                    showResult('consultation-result', 
+                        `✅ SUCCESS!<br><br>
+                        <strong>Message:</strong> ${result.message}<br>
+                        <pre>${JSON.stringify(result, null, 2)}</pre>`, 
+                        'success');
+                } else {
+                    showResult('consultation-result', 
+                        `❌ ERROR!<br><br>
+                        <strong>Error:</strong> ${result.error || 'Unknown error'}<br>
+                        <pre>${JSON.stringify(result, null, 2)}</pre>`, 
+                        'error');
+                }
+            } catch (error) {
+                console.error('Consultation form test error:', error);
+                showResult('consultation-result', 
+                    `❌ NETWORK ERROR!<br><br>
+                    <strong>Error:</strong> ${error.message}<br>
+                    <strong>Possible causes:</strong><br>
+                    • PHP file not found at /api/consultation.php<br>
+                    • Server doesn't support PHP<br>
+                    • CORS issues<br>
+                    • Network connection problem<br><br>
+                    <strong>Check:</strong><br>
+                    1. Open browser console (F12) and check Network tab<br>
+                    2. Verify api/consultation.php exists on server<br>
+                    3. Check server error logs<br><br>
+                    <pre>${error.stack || error.toString()}</pre>`, 
+                    'error');
+            }
+        }
+
+        async function testCareerForm() {
+            const resultEl = document.getElementById('career-result');
+            showResult('career-result', 'Testing...', 'info');
+            
+            const testData = {
+                name: 'Test Applicant',
+                email: 'test@example.com',
+                phone: '+1234567890',
+                position: 'sap-consultant',
+                experience: '2-3',
+                message: 'This is a test career application.',
+                cv: 'test-cv.pdf'
+            };
+
+            try {
+                console.log('Testing career form with data:', testData);
+                console.log('Endpoint: /api/careers.php');
+                
+                const response = await fetch('/api/careers.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+
+                console.log('Response status:', response.status);
+                const result = await response.json();
+                console.log('Response data:', result);
+
+                if (result.success) {
+                    showResult('career-result', 
+                        `✅ SUCCESS!<br><br>
+                        <strong>Message:</strong> ${result.message}<br>
+                        <pre>${JSON.stringify(result, null, 2)}</pre>`, 
+                        'success');
+                } else {
+                    showResult('career-result', 
+                        `❌ ERROR!<br><br>
+                        <strong>Error:</strong> ${result.error || 'Unknown error'}<br>
+                        <pre>${JSON.stringify(result, null, 2)}</pre>`, 
+                        'error');
+                }
+            } catch (error) {
+                console.error('Career form test error:', error);
+                showResult('career-result', 
+                    `❌ NETWORK ERROR!<br><br>
+                    <strong>Error:</strong> ${error.message}<br>
+                    <strong>Possible causes:</strong><br>
+                    • PHP file not found at /api/careers.php<br>
+                    • Server doesn't support PHP<br>
+                    • CORS issues<br>
+                    • Network connection problem<br><br>
+                    <strong>Check:</strong><br>
+                    1. Open browser console (F12) and check Network tab<br>
+                    2. Verify api/careers.php exists on server<br>
+                    3. Check server error logs<br><br>
+                    <pre>${error.stack || error.toString()}</pre>`, 
+                    'error');
+            }
+        }
+
+        async function checkEndpoints() {
+            const resultEl = document.getElementById('endpoint-result');
+            showResult('endpoint-result', 'Checking endpoints...', 'info');
+            
+            const endpoints = [
+                { name: 'Contact Form', url: '/api/contact.php' },
+                { name: 'Consultation Form', url: '/api/consultation.php' },
+                { name: 'Career Application Form', url: '/api/careers.php' },
+            ];
+
+            let results = '<h3>Endpoint Status:</h3>';
+
+            for (const endpoint of endpoints) {
+                try {
+                    const response = await fetch(endpoint.url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({})
+                    });
+
+                    const status = response.ok ? '✅' : '⚠️';
+                    const statusText = response.ok ? 'Accessible' : `Status: ${response.status}`;
+                    
+                    results += `<p><strong>${endpoint.name}</strong> (${endpoint.url}): ${status} ${statusText}</p>`;
+                } catch (error) {
+                    results += `<p><strong>${endpoint.name}</strong> (${endpoint.url}): ❌ Error - ${error.message}</p>`;
+                }
+            }
+
+            results += `<br><strong>Note:</strong> If endpoints return errors, they might be working but returning validation errors (which is expected with empty data). Try the form tests above for complete testing.`;
+            
+            showResult('endpoint-result', results, 'info');
+        }
+
+        // Auto-check endpoints on load
+        window.addEventListener('load', () => {
+            console.log('🧪 Form Test Page Loaded');
+            console.log('Current URL:', window.location.href);
+            console.log('API Endpoints to test:');
+            console.log('- /api/contact.php');
+            console.log('- /api/consultation.php');
+        });
+    </script>
+</body>
+</html>
+
