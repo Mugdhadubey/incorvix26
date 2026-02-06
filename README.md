@@ -2,7 +2,7 @@
 
 ## 🚀 Quick Start
 
-This folder is **100% ready** to upload to your server. 
+This folder is **100% ready** to upload to your server 
 
 **Just upload and follow:** `UPLOAD-INSTRUCTIONS.md`
 
